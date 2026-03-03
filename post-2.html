@@ -3,52 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>第二篇文章 - Elden 的博客</title>
+    <title>AI 助手协作 - Elden 的博客</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: { primary: '#0a0e14', secondary: '#111827', card: '#1f2937', hover: '#374151' },
+                        accent: { primary: '#3b82f6', secondary: '#8b5cf6', glow: 'rgba(59, 130, 246, 0.5)' }
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] }
+                }
+            }
+        }
+    </script>
     <style>
-        :root { --primary: #2563eb; --text: #1f2937; --bg: #f9fafb; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: var(--text); background: var(--bg); }
-        .container { max-width: 800px; margin: 0 auto; padding: 2rem; }
-        header { background: white; border-bottom: 1px solid #e5e7eb; padding: 1rem 0; }
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        nav a { color: var(--primary); text-decoration: none; margin-left: 1.5rem; }
-        main { padding: 3rem 0; }
-        article { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-        .meta { color: #6b7280; font-size: 0.9rem; margin-bottom: 2rem; }
-        h2 { font-size: 1.5rem; margin: 2rem 0 1rem; }
-        p { margin-bottom: 1rem; }
-        footer { text-align: center; padding: 2rem 0; color: #6b7280; border-top: 1px solid #e5e7eb; margin-top: 3rem; }
-        .back { display: inline-block; margin-bottom: 2rem; color: var(--primary); text-decoration: none; }
-        .back:hover { text-decoration: underline; }
+        body { background-color: #0a0e14; color: #e5e7eb; }
+        .gradient-text { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, #3b82f6, #8b5cf6); transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        .prose { max-width: 700px; }
+        .prose h2 { font-size: 1.5rem; font-weight: 600; margin: 2rem 0 1rem; color: white; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.75; }
     </style>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" style="font-weight: bold; font-size: 1.2rem;">Elden 的博客</a>
-                <div>
-                    <a href="index.html">首页</a>
-                    <a href="about.html">关于</a>
+<body class="min-h-screen">
+    <nav class="bg-bg-secondary/80 backdrop-blur-md border-b border-white/10 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <i data-lucide="code-2" class="w-8 h-8 text-accent-primary"></i>
+                    <span class="text-xl font-bold gradient-text">Elden 的博客</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-white font-medium">首页</a>
+                    <a href="archive.html" class="nav-link text-gray-400 hover:text-white">归档</a>
+                    <a href="about.html" class="nav-link text-gray-400 hover:text-white">关于</a>
                 </div>
-            </nav>
+            </div>
         </div>
-    </header>
-    <main class="container">
-        <a href="index.html" class="back">← 返回首页</a>
-        <article>
-            <h1>第二篇文章：AI 助手协作</h1>
-            <div class="meta">发布于 2026 年 3 月 3 日</div>
-            <p>探索与 AI 助手协作的工作流。</p>
-            <h2>为什么选择 AI 协作</h2>
-            <p>AI 不是替代，而是增强。它处理重复性工作，我专注于决策和创意。</p>
-            <h2>实践心得</h2>
-            <p>关键是明确边界：让 AI 做执行，人做判断。</p>
-        </article>
+    </nav>
+
+    <main class="py-12 px-4">
+        <div class="max-w-3xl mx-auto">
+            <a href="index.html" class="inline-flex items-center text-accent-primary hover:text-accent-secondary mb-8 transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>
+                返回首页
+            </a>
+
+            <article class="bg-bg-card rounded-xl p-8 border border-white/10">
+                <header class="mb-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">AI 工具</span>
+                        <span class="text-gray-500 text-sm">2026 年 3 月 3 日</span>
+                    </div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">第二篇文章：AI 助手协作</h1>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold">E</div>
+                        <div>
+                            <p class="text-white font-medium">Elden</p>
+                            <p class="text-gray-500 text-sm">3 分钟阅读</p>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="prose prose-invert">
+                    <p>探索与 AI 助手协作的工作流。</p>
+                    
+                    <h2>为什么选择 AI 协作</h2>
+                    <p>AI 不是替代，而是增强。它处理重复性工作，我专注于决策和创意。</p>
+                    <p>在日常开发中，大量时间花费在样板代码、文档编写、测试用例生成等重复性任务上。AI 助手可以高效完成这些工作，让我有更多时间思考架构设计和业务逻辑。</p>
+                    
+                    <h2>实践心得</h2>
+                    <p>关键是明确边界：让 AI 做执行，人做判断。</p>
+                    <p>AI 擅长快速生成代码、提供多种方案、查找资料；但最终的架构决策、代码审查、业务理解，仍然需要人类的经验和直觉。</p>
+                    <p>好的协作模式是：AI 作为"超级实习生"，快速产出初稿；人类作为"资深工程师"，负责审核、修改和决策。</p>
+                </div>
+            </article>
+        </div>
     </main>
-    <footer class="container">
-        <p>&copy; 2026 Elden. Built with 😼 by 大胖妞.</p>
+
+    <footer class="bg-bg-primary border-t border-white/10 py-8 px-4 mt-12">
+        <div class="max-w-7xl mx-auto text-center text-gray-500 text-sm">
+            © 2026 Elden. Built with 😼 by 大胖妞.
+        </div>
     </footer>
+
+    <script>lucide.createIcons();</script>
 </body>
 </html>

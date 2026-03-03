@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Elden 的博客</title>
+    <link>https://zuokun300.github.io/personal_blog/</link>
+    <description>记录技术 · 分享思考</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 03 Mar 2026 10:00:00 GMT</lastBuildDate>
+    <atom:link href="https://zuokun300.github.io/personal_blog/feed.xml" rel="self" type="application/rss+xml"/>
+    
+    <item>
+      <title>第三篇文章：自动化与效率</title>
+      <link>https://zuokun300.github.io/personal_blog/post-3.html</link>
+      <description>如何用自动化提升工作效率。重复两次以上的工作，就应该自动化。</description>
+      <pubDate>Tue, 03 Mar 2026 10:00:00 GMT</pubDate>
+      <guid>https://zuokun300.github.io/personal_blog/post-3.html</guid>
+    </item>
+    
+    <item>
+      <title>第二篇文章：AI 助手协作</title>
+      <link>https://zuokun300.github.io/personal_blog/post-2.html</link>
+      <description>探索与 AI 助手协作的工作流。AI 不是替代，而是增强。</description>
+      <pubDate>Tue, 03 Mar 2026 10:00:00 GMT</pubDate>
+      <guid>https://zuokun300.github.io/personal_blog/post-2.html</guid>
+    </item>
+    
+    <item>
+      <title>第一篇文章：开始</title>
+      <link>https://zuokun300.github.io/personal_blog/post-1.html</link>
+      <description>从这里开始，记录思考、项目和技术探索。</description>
+      <pubDate>Tue, 03 Mar 2026 10:00:00 GMT</pubDate>
+      <guid>https://zuokun300.github.io/personal_blog/post-1.html</guid>
+    </item>
+  </channel>
+</rss>

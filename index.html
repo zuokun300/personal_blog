@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevLog - 技术博客</title>
+    <title>Elden 的博客 - 技术与思考</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
@@ -12,386 +12,180 @@
             theme: {
                 extend: {
                     colors: {
-                        bg: {
-                            primary: '#0a0e14',
-                            secondary: '#111827',
-                            card: '#1f2937',
-                            hover: '#374151'
-                        },
-                        accent: {
-                            primary: '#3b82f6',
-                            secondary: '#8b5cf6',
-                            glow: 'rgba(59, 130, 246, 0.5)'
-                        }
+                        bg: { primary: '#0a0e14', secondary: '#111827', card: '#1f2937', hover: '#374151' },
+                        accent: { primary: '#3b82f6', secondary: '#8b5cf6', glow: 'rgba(59, 130, 246, 0.5)' }
                     },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace']
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.6s ease-out',
-                        'slide-up': 'slideUp 0.8s ease-out',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
-                        'float': 'float 3s ease-in-out infinite'
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' }
-                        },
-                        slideUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
-                        },
-                        glow: {
-                            '0%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.3)' },
-                            '100%': { boxShadow: '0 0 40px rgba(59, 130, 246, 0.6)' }
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' }
-                        }
-                    }
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] }
                 }
             }
         }
     </script>
     <style>
-        body {
-            background-color: #0a0e14;
-            color: #e5e7eb;
-        }
-        .gradient-text {
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);
-        }
-        .nav-link {
-            position: relative;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        .tag-pill {
-            transition: all 0.2s ease;
-        }
-        .tag-pill:hover {
-            background: rgba(59, 130, 246, 0.2);
-            transform: scale(1.05);
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #111827;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #374151;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #4b5563;
-        }
+        body { background-color: #0a0e14; color: #e5e7eb; }
+        .gradient-text { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2); }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, #3b82f6, #8b5cf6); transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        .tag-pill { transition: all 0.2s ease; }
+        .tag-pill:hover { background: rgba(59, 130, 246, 0.2); transform: scale(1.05); }
     </style>
 </head>
 <body class="min-h-screen">
     <!-- 导航栏 -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-bg-primary/80 backdrop-blur-lg border-b border-white/10">
+    <nav class="bg-bg-secondary/80 backdrop-blur-md border-b border-white/10 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center space-x-2">
                     <i data-lucide="code-2" class="w-8 h-8 text-accent-primary"></i>
-                    <span class="text-xl font-bold gradient-text">DevLog</span>
+                    <span class="text-xl font-bold gradient-text">Elden 的博客</span>
                 </div>
-                
-                <!-- 桌面导航 -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#" class="nav-link text-white font-medium">首页</a>
-                    <a href="#" class="nav-link text-gray-400 hover:text-white transition-colors">文章</a>
-                    <a href="#" class="nav-link text-gray-400 hover:text-white transition-colors">教程</a>
-                    <a href="#" class="nav-link text-gray-400 hover:text-white transition-colors">资源</a>
-                    <a href="#" class="nav-link text-gray-400 hover:text-white transition-colors">关于</a>
+                    <a href="index.html" class="nav-link text-white font-medium">首页</a>
+                    <a href="archive.html" class="nav-link text-gray-400 hover:text-white transition-colors">归档</a>
+                    <a href="about.html" class="nav-link text-gray-400 hover:text-white transition-colors">关于</a>
+                    <a href="https://github.com/zuokun300" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
+                    <a href="feed.xml" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="rss" class="w-5 h-5"></i></a>
                 </div>
-
-                <!-- 移动端菜单按钮 -->
-                <button class="md:hidden text-gray-400 hover:text-white" id="mobile-menu-btn">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-400 hover:text-white">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
             </div>
         </div>
-        
-        <!-- 移动端菜单 -->
-        <div class="md:hidden hidden bg-bg-secondary border-t border-white/10" id="mobile-menu">
-            <div class="px-4 py-4 space-y-3">
-                <a href="#" class="block text-white font-medium">首页</a>
-                <a href="#" class="block text-gray-400 hover:text-white transition-colors">文章</a>
-                <a href="#" class="block text-gray-400 hover:text-white transition-colors">教程</a>
-                <a href="#" class="block text-gray-400 hover:text-white transition-colors">资源</a>
-                <a href="#" class="block text-gray-400 hover:text-white transition-colors">关于</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-bg-secondary border-t border-white/10">
+            <div class="px-4 py-4 space-y-4">
+                <a href="index.html" class="block text-white font-medium">首页</a>
+                <a href="archive.html" class="block text-gray-400">归档</a>
+                <a href="about.html" class="block text-gray-400">关于</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero 区域 -->
-    <section class="pt-32 pb-20 px-4 relative overflow-hidden">
-        <!-- 背景装饰 -->
-        <div class="absolute top-20 left-1/4 w-72 h-72 bg-accent-primary/20 rounded-full blur-3xl animate-float"></div>
-        <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-accent-secondary/20 rounded-full blur-3xl animate-float" style="animation-delay: 1s;"></div>
-        
-        <div class="max-w-7xl mx-auto text-center relative z-10">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-slide-up">
-                <span class="gradient-text">探索技术的无限可能</span>
+    <!-- 搜索栏 -->
+    <section class="py-12 px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                <span class="gradient-text">记录技术 · 分享思考</span>
             </h1>
-            <p class="text-xl md:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.3s;">
-                分享前沿技术、深度教程与开发心得，与你一起成长
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style="animation-delay: 0.5s;">
-                <button class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg font-semibold text-white hover:shadow-lg hover:shadow-accent-glow transition-all duration-300 transform hover:scale-105">
-                    开始阅读
-                    <i data-lucide="arrow-right" class="inline-block w-5 h-5 ml-2"></i>
-                </button>
-                <button class="px-8 py-4 bg-bg-card border border-white/20 rounded-lg font-semibold text-white hover:bg-bg-hover transition-all duration-300">
-                    了解更多
-                </button>
-            </div>
-            
-            <!-- 统计数据 -->
-            <div class="grid grid-cols-3 gap-8 mt-16 max-w-2xl mx-auto animate-fade-in" style="animation-delay: 0.7s;">
-                <div>
-                    <div class="text-3xl font-bold gradient-text">100+</div>
-                    <div class="text-gray-400 mt-1">技术文章</div>
-                </div>
-                <div>
-                    <div class="text-3xl font-bold gradient-text">50+</div>
-                    <div class="text-gray-400 mt-1">实战教程</div>
-                </div>
-                <div>
-                    <div class="text-3xl font-bold gradient-text">10k+</div>
-                    <div class="text-gray-400 mt-1">月度读者</div>
-                </div>
+            <p class="text-gray-400 text-lg mb-8">专注于开发实践、架构设计与 AI 协作探索</p>
+            <div class="relative max-w-xl mx-auto">
+                <input type="text" id="search-input" placeholder="搜索文章..." class="w-full bg-bg-card border border-white/10 rounded-xl py-4 px-6 pl-12 text-white placeholder-gray-500 focus:outline-none focus:border-accent-primary transition-colors">
+                <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500"></i>
             </div>
         </div>
     </section>
 
-    <!-- 主要内容区域 -->
-    <section class="py-16 px-4 bg-bg-secondary">
+    <!-- 文章列表 -->
+    <section class="py-12 px-4">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- 文章列表 -->
-                <div class="lg:col-span-2">
-                    <div class="flex items-center justify-between mb-8">
-                        <h2 class="text-3xl font-bold text-white">最新文章</h2>
-                        <a href="#" class="text-accent-primary hover:text-accent-secondary transition-colors flex items-center">
-                            查看全部
-                            <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-                        </a>
-                    </div>
-                    
-                    <div class="space-y-6">
-                        <!-- 文章卡片 1 -->
-                        <article class="bg-bg-card rounded-xl p-6 border border-white/10 card-hover cursor-pointer">
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="px-3 py-1 bg-accent-primary/20 text-accent-primary text-sm rounded-full">前端开发</span>
-                                <span class="text-gray-500 text-sm">2024-03-01</span>
+                <!-- 主内容区 -->
+                <div class="lg:col-span-2 space-y-6" id="articles-container">
+                    <!-- 文章 1 -->
+                    <article class="card-hover bg-bg-card rounded-xl p-6 border border-white/10 cursor-pointer" onclick="location.href='post-1.html'">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="px-3 py-1 bg-accent-primary/20 text-accent-primary rounded-full text-sm">AI 协作</span>
+                            <span class="text-gray-500 text-sm">2026 年 3 月 3 日</span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-white mb-3 hover:text-accent-primary transition-colors">第一篇文章：开始</h2>
+                        <p class="text-gray-400 mb-4 line-clamp-2">从这里开始，记录思考、项目和技术探索。写作是整理思路最好的方式，通过输出倒逼输入。</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold text-sm">E</div>
+                                <span class="text-gray-400 text-sm">Elden</span>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-3 hover:text-accent-primary transition-colors">
-                                深入理解 React Server Components：从原理到实践
-                            </h3>
-                            <p class="text-gray-400 mb-4 line-clamp-2">
-                                React Server Components 是 React 18 引入的全新架构，它允许组件在服务器端渲染，同时保持与客户端组件的无缝集成。本文将深入探讨其工作原理...
-                            </p>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center space-x-4 text-gray-500 text-sm">
-                                    <span class="flex items-center"><i data-lucide="eye" class="w-4 h-4 mr-1"></i> 2.3k</span>
-                                    <span class="flex items-center"><i data-lucide="message-square" class="w-4 h-4 mr-1"></i> 45</span>
-                                </div>
-                                <a href="#" class="text-accent-primary hover:text-accent-secondary transition-colors font-medium">阅读全文 →</a>
-                            </div>
-                        </article>
+                            <span class="text-gray-500 text-sm flex items-center gap-1">
+                                <i data-lucide="clock" class="w-4 h-4"></i>
+                                2 分钟阅读
+                            </span>
+                        </div>
+                    </article>
 
-                        <!-- 文章卡片 2 -->
-                        <article class="bg-bg-card rounded-xl p-6 border border-white/10 card-hover cursor-pointer">
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 text-sm rounded-full">后端架构</span>
-                                <span class="text-gray-500 text-sm">2024-02-28</span>
+                    <!-- 文章 2 -->
+                    <article class="card-hover bg-bg-card rounded-xl p-6 border border-white/10 cursor-pointer" onclick="location.href='post-2.html'">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">AI 工具</span>
+                            <span class="text-gray-500 text-sm">2026 年 3 月 3 日</span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-white mb-3 hover:text-accent-primary transition-colors">第二篇文章：AI 助手协作</h2>
+                        <p class="text-gray-400 mb-4 line-clamp-2">探索与 AI 助手协作的工作流。AI 不是替代，而是增强。它处理重复性工作，我专注于决策和创意。</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold text-sm">E</div>
+                                <span class="text-gray-400 text-sm">Elden</span>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-3 hover:text-accent-primary transition-colors">
-                                微服务架构下的分布式事务解决方案
-                            </h3>
-                            <p class="text-gray-400 mb-4 line-clamp-2">
-                                在微服务架构中，分布式事务是一个经典难题。本文将对比分析 Saga、TCC、本地消息表等主流方案，并分享实际项目中的落地经验...
-                            </p>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center space-x-4 text-gray-500 text-sm">
-                                    <span class="flex items-center"><i data-lucide="eye" class="w-4 h-4 mr-1"></i> 1.8k</span>
-                                    <span class="flex items-center"><i data-lucide="message-square" class="w-4 h-4 mr-1"></i> 32</span>
-                                </div>
-                                <a href="#" class="text-accent-primary hover:text-accent-secondary transition-colors font-medium">阅读全文 →</a>
-                            </div>
-                        </article>
+                            <span class="text-gray-500 text-sm flex items-center gap-1">
+                                <i data-lucide="clock" class="w-4 h-4"></i>
+                                3 分钟阅读
+                            </span>
+                        </div>
+                    </article>
 
-                        <!-- 文章卡片 3 -->
-                        <article class="bg-bg-card rounded-xl p-6 border border-white/10 card-hover cursor-pointer">
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="px-3 py-1 bg-green-500/20 text-green-400 text-sm rounded-full">DevOps</span>
-                                <span class="text-gray-500 text-sm">2024-02-25</span>
+                    <!-- 文章 3 -->
+                    <article class="card-hover bg-bg-card rounded-xl p-6 border border-white/10 cursor-pointer" onclick="location.href='post-3.html'">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">自动化</span>
+                            <span class="text-gray-500 text-sm">2026 年 3 月 3 日</span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-white mb-3 hover:text-accent-primary transition-colors">第三篇文章：自动化与效率</h2>
+                        <p class="text-gray-400 mb-4 line-clamp-2">如何用自动化提升工作效率。重复两次以上的工作，就应该自动化。让机器做机器擅长的事。</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold text-sm">E</div>
+                                <span class="text-gray-400 text-sm">Elden</span>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-3 hover:text-accent-primary transition-colors">
-                                Kubernetes 生产环境最佳实践指南
-                            </h3>
-                            <p class="text-gray-400 mb-4 line-clamp-2">
-                                从资源限制、健康检查到自动扩缩容，本文总结了在生产环境中运行 Kubernetes 集群的关键配置和注意事项，帮助你构建稳定可靠的容器平台...
-                            </p>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center space-x-4 text-gray-500 text-sm">
-                                    <span class="flex items-center"><i data-lucide="eye" class="w-4 h-4 mr-1"></i> 3.1k</span>
-                                    <span class="flex items-center"><i data-lucide="message-square" class="w-4 h-4 mr-1"></i> 58</span>
-                                </div>
-                                <a href="#" class="text-accent-primary hover:text-accent-secondary transition-colors font-medium">阅读全文 →</a>
-                            </div>
-                        </article>
-
-                        <!-- 文章卡片 4 -->
-                        <article class="bg-bg-card rounded-xl p-6 border border-white/10 card-hover cursor-pointer">
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 text-sm rounded-full">人工智能</span>
-                                <span class="text-gray-500 text-sm">2024-02-22</span>
-                            </div>
-                            <h3 class="text-xl font-bold text-white mb-3 hover:text-accent-primary transition-colors">
-                                大语言模型应用开发：从 Prompt 工程到 RAG 架构
-                            </h3>
-                            <p class="text-gray-400 mb-4 line-clamp-2">
-                                如何构建基于大语言模型的实际应用？本文将带你从基础的 Prompt 技巧开始，逐步深入到 RAG 检索增强生成架构的完整实现...
-                            </p>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center space-x-4 text-gray-500 text-sm">
-                                    <span class="flex items-center"><i data-lucide="eye" class="w-4 h-4 mr-1"></i> 4.5k</span>
-                                    <span class="flex items-center"><i data-lucide="message-square" class="w-4 h-4 mr-1"></i> 89</span>
-                                </div>
-                                <a href="#" class="text-accent-primary hover:text-accent-secondary transition-colors font-medium">阅读全文 →</a>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- 分页 -->
-                    <div class="flex justify-center mt-12">
-                        <nav class="flex items-center space-x-2">
-                            <button class="px-4 py-2 bg-bg-card border border-white/10 rounded-lg text-gray-400 hover:text-white hover:bg-bg-hover transition-colors">
-                                <i data-lucide="chevron-left" class="w-5 h-5"></i>
-                            </button>
-                            <button class="px-4 py-2 bg-accent-primary text-white rounded-lg">1</button>
-                            <button class="px-4 py-2 bg-bg-card border border-white/10 rounded-lg text-gray-400 hover:text-white hover:bg-bg-hover transition-colors">2</button>
-                            <button class="px-4 py-2 bg-bg-card border border-white/10 rounded-lg text-gray-400 hover:text-white hover:bg-bg-hover transition-colors">3</button>
-                            <span class="text-gray-500 px-2">...</span>
-                            <button class="px-4 py-2 bg-bg-card border border-white/10 rounded-lg text-gray-400 hover:text-white hover:bg-bg-hover transition-colors">
-                                <i data-lucide="chevron-right" class="w-5 h-5"></i>
-                            </button>
-                        </nav>
-                    </div>
+                            <span class="text-gray-500 text-sm flex items-center gap-1">
+                                <i data-lucide="clock" class="w-4 h-4"></i>
+                                3 分钟阅读
+                            </span>
+                        </div>
+                    </article>
                 </div>
 
                 <!-- 侧边栏 -->
-                <aside class="space-y-8">
-                    <!-- 搜索框 -->
+                <aside class="space-y-6">
+                    <!-- 关于我 -->
                     <div class="bg-bg-card rounded-xl p-6 border border-white/10">
-                        <div class="relative">
-                            <i data-lucide="search" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500"></i>
-                            <input type="text" placeholder="搜索文章..." class="w-full bg-bg-primary border border-white/10 rounded-lg py-3 pl-10 pr-4 text-white placeholder-gray-500 focus:outline-none focus:border-accent-primary transition-colors">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold text-2xl">E</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Elden</h3>
+                                <p class="text-gray-400 text-sm">开发者 · 技术爱好者</p>
+                            </div>
                         </div>
+                        <p class="text-gray-400 text-sm mb-4">记录技术探索与思考，分享开发实践中的经验与教训。</p>
+                        <a href="about.html" class="block w-full py-2.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg font-semibold text-white text-center hover:shadow-lg hover:shadow-accent-glow transition-all duration-300">
+                            了解更多
+                        </a>
                     </div>
 
                     <!-- 热门标签 -->
                     <div class="bg-bg-card rounded-xl p-6 border border-white/10">
                         <h3 class="text-xl font-bold text-white mb-4 flex items-center">
                             <i data-lucide="tag" class="w-5 h-5 mr-2 text-accent-primary"></i>
-                            热门标签
+                            标签
                         </h3>
                         <div class="flex flex-wrap gap-2">
-                            <span class="tag-pill px-3 py-1.5 bg-accent-primary/20 text-accent-primary rounded-full text-sm cursor-pointer">React</span>
-                            <span class="tag-pill px-3 py-1.5 bg-purple-500/20 text-purple-400 rounded-full text-sm cursor-pointer">TypeScript</span>
-                            <span class="tag-pill px-3 py-1.5 bg-green-500/20 text-green-400 rounded-full text-sm cursor-pointer">Node.js</span>
-                            <span class="tag-pill px-3 py-1.5 bg-blue-500/20 text-blue-400 rounded-full text-sm cursor-pointer">Kubernetes</span>
-                            <span class="tag-pill px-3 py-1.5 bg-yellow-500/20 text-yellow-400 rounded-full text-sm cursor-pointer">AI/ML</span>
-                            <span class="tag-pill px-3 py-1.5 bg-pink-500/20 text-pink-400 rounded-full text-sm cursor-pointer">数据库</span>
-                            <span class="tag-pill px-3 py-1.5 bg-indigo-500/20 text-indigo-400 rounded-full text-sm cursor-pointer">微服务</span>
-                            <span class="tag-pill px-3 py-1.5 bg-orange-500/20 text-orange-400 rounded-full text-sm cursor-pointer">Rust</span>
+                            <a href="#" class="tag-pill px-3 py-1.5 bg-accent-primary/20 text-accent-primary rounded-full text-sm">AI 协作</a>
+                            <a href="#" class="tag-pill px-3 py-1.5 bg-purple-500/20 text-purple-400 rounded-full text-sm">自动化</a>
+                            <a href="#" class="tag-pill px-3 py-1.5 bg-green-500/20 text-green-400 rounded-full text-sm">工具链</a>
+                            <a href="#" class="tag-pill px-3 py-1.5 bg-blue-500/20 text-blue-400 rounded-full text-sm">开发实践</a>
                         </div>
                     </div>
 
-                    <!-- 热门文章 -->
-                    <div class="bg-bg-card rounded-xl p-6 border border-white/10">
-                        <h3 class="text-xl font-bold text-white mb-4 flex items-center">
-                            <i data-lucide="trending-up" class="w-5 h-5 mr-2 text-accent-primary"></i>
-                            热门文章
-                        </h3>
-                        <div class="space-y-4">
-                            <article class="flex gap-3 cursor-pointer group">
-                                <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center text-white font-bold">1</div>
-                                <div>
-                                    <h4 class="text-white font-medium group-hover:text-accent-primary transition-colors line-clamp-2">
-                                        2024 年前端开发趋势与技术栈选型指南
-                                    </h4>
-                                    <p class="text-gray-500 text-sm mt-1">5.2k 阅读</p>
-                                </div>
-                            </article>
-                            <article class="flex gap-3 cursor-pointer group">
-                                <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-lg flex items-center justify-center text-white font-bold">2</div>
-                                <div>
-                                    <h4 class="text-white font-medium group-hover:text-accent-primary transition-colors line-clamp-2">
-                                        PostgreSQL 性能优化实战：从配置到索引
-                                    </h4>
-                                    <p class="text-gray-500 text-sm mt-1">4.8k 阅读</p>
-                                </div>
-                            </article>
-                            <article class="flex gap-3 cursor-pointer group">
-                                <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center text-white font-bold">3</div>
-                                <div>
-                                    <h4 class="text-white font-medium group-hover:text-accent-primary transition-colors line-clamp-2">
-                                        Docker 多阶段构建：减小镜像体积的终极方案
-                                    </h4>
-                                    <p class="text-gray-500 text-sm mt-1">4.1k 阅读</p>
-                                </div>
-                            </article>
-                            <article class="flex gap-3 cursor-pointer group">
-                                <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center text-white font-bold">4</div>
-                                <div>
-                                    <h4 class="text-white font-medium group-hover:text-accent-primary transition-colors line-clamp-2">
-                                        WebSocket 实时通信：原理、实现与最佳实践
-                                    </h4>
-                                    <p class="text-gray-500 text-sm mt-1">3.7k 阅读</p>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-
-                    <!-- 订阅通讯 -->
+                    <!-- RSS 订阅 -->
                     <div class="bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-xl p-6 border border-accent-primary/30">
-                        <h3 class="text-xl font-bold text-white mb-2">订阅技术通讯</h3>
-                        <p class="text-gray-400 text-sm mb-4">每周精选技术文章，直达你的邮箱</p>
-                        <div class="space-y-3">
-                            <input type="email" placeholder="your@email.com" class="w-full bg-bg-primary border border-white/10 rounded-lg py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:border-accent-primary transition-colors">
-                            <button class="w-full py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg font-semibold text-white hover:shadow-lg hover:shadow-accent-glow transition-all duration-300">
-                                立即订阅
-                            </button>
-                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 flex items-center">
+                            <i data-lucide="rss" class="w-5 h-5 mr-2"></i>
+                            订阅更新
+                        </h3>
+                        <p class="text-gray-400 text-sm mb-4">获取最新文章推送</p>
+                        <a href="feed.xml" class="block w-full py-2.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg font-semibold text-white text-center hover:shadow-lg transition-all duration-300">
+                            RSS 订阅
+                        </a>
                     </div>
                 </aside>
             </div>
@@ -399,117 +193,45 @@
     </section>
 
     <!-- 页脚 -->
-    <footer class="bg-bg-primary border-t border-white/10 py-12 px-4">
+    <footer class="bg-bg-primary border-t border-white/10 py-12 px-4 mt-12">
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <!-- 品牌信息 -->
-                <div class="md:col-span-1">
-                    <div class="flex items-center space-x-2 mb-4">
-                        <i data-lucide="code-2" class="w-8 h-8 text-accent-primary"></i>
-                        <span class="text-xl font-bold gradient-text">DevLog</span>
-                    </div>
-                    <p class="text-gray-400 text-sm">
-                        专注于分享高质量的技术内容与开发经验，助力开发者成长。
-                    </p>
-                    <div class="flex space-x-4 mt-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="rss" class="w-5 h-5"></i></a>
-                    </div>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="code-2" class="w-6 h-6 text-accent-primary"></i>
+                    <span class="font-bold gradient-text">Elden 的博客</span>
                 </div>
-
-                <!-- 快速链接 -->
-                <div>
-                    <h4 class="text-white font-semibold mb-4">快速链接</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">首页</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">最新文章</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">热门标签</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">归档</a></li>
-                    </ul>
+                <p class="text-gray-500 text-sm">© 2026 Elden. Built with 😼 by 大胖妞.</p>
+                <div class="flex space-x-4">
+                    <a href="https://github.com/zuokun300" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
+                    <a href="feed.xml" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="rss" class="w-5 h-5"></i></a>
                 </div>
-
-                <!-- 技术分类 -->
-                <div>
-                    <h4 class="text-white font-semibold mb-4">技术分类</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">前端开发</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">后端架构</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">DevOps</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">人工智能</a></li>
-                    </ul>
-                </div>
-
-                <!-- 其他 -->
-                <div>
-                    <h4 class="text-white font-semibold mb-4">其他</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">关于本站</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">友情链接</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">隐私政策</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">联系我们</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 版权信息 -->
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-500 text-sm">
-                    © 2024 DevLog. All rights reserved.
-                </p>
-                <p class="text-gray-500 text-sm mt-2 md:mt-0">
-                    Made with <i data-lucide="heart" class="w-4 h-4 inline text-red-500"></i> by Developers
-                </p>
             </div>
         </div>
     </footer>
 
-    <!-- 回到顶部按钮 -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 p-3 bg-accent-primary rounded-full text-white shadow-lg hover:bg-accent-secondary transition-all duration-300 transform hover:scale-110 opacity-0 invisible">
-        <i data-lucide="arrow-up" class="w-6 h-6"></i>
-    </button>
-
     <script>
-        // 初始化 Lucide 图标
         lucide.createIcons();
 
-        // 移动端菜单切换
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        // 移动端菜单
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         });
 
-        // 回到顶部按钮
-        const backToTopBtn = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
-                backToTopBtn.classList.remove('opacity-0', 'invisible');
-                backToTopBtn.classList.add('opacity-100', 'visible');
-            } else {
-                backToTopBtn.classList.add('opacity-0', 'invisible');
-                backToTopBtn.classList.remove('opacity-100', 'visible');
-            }
-        });
+        // 搜索功能
+        const searchInput = document.getElementById('search-input');
+        const articlesContainer = document.getElementById('articles-container');
+        const articles = articlesContainer.querySelectorAll('article');
 
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // 标签点击效果
-        document.querySelectorAll('.tag-pill').forEach(pill => {
-            pill.addEventListener('click', () => {
-                console.log('Tag clicked:', pill.textContent);
-            });
-        });
-
-        // 文章卡片点击效果
-        document.querySelectorAll('article.card-hover').forEach(card => {
-            card.addEventListener('click', () => {
-                console.log('Article clicked');
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            articles.forEach(article => {
+                const title = article.querySelector('h2').textContent.toLowerCase();
+                const desc = article.querySelector('p').textContent.toLowerCase();
+                if (title.includes(query) || desc.includes(query)) {
+                    article.style.display = 'block';
+                } else {
+                    article.style.display = 'none';
+                }
             });
         });
     </script>
