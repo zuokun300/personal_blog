@@ -3,53 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关于 - Elden 的博客</title>
-    <style>
-        :root {
-            --primary: #2563eb;
-            --text: #1f2937;
-            --bg: #f9fafb;
+    <title>关于我 - Elden</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: { primary: '#0a0e14', secondary: '#111827', card: '#1f2937', hover: '#374151' },
+                        accent: { primary: '#3b82f6', secondary: '#8b5cf6', glow: 'rgba(59, 130, 246, 0.5)' }
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] }
+                }
+            }
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: var(--text); background: var(--bg); }
-        .container { max-width: 800px; margin: 0 auto; padding: 2rem; }
-        header { background: white; border-bottom: 1px solid #e5e7eb; padding: 1rem 0; }
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        nav a { color: var(--primary); text-decoration: none; margin-left: 1.5rem; }
-        nav a:hover { text-decoration: underline; }
-        main { padding: 3rem 0; }
-        h1 { font-size: 2.5rem; margin-bottom: 1.5rem; }
-        h2 { font-size: 1.8rem; margin: 2rem 0 1rem; }
-        p { margin-bottom: 1rem; }
-        footer { text-align: center; padding: 2rem 0; color: #6b7280; border-top: 1px solid #e5e7eb; margin-top: 3rem; }
+    </script>
+    <style>
+        body { background-color: #0a0e14; color: #e5e7eb; }
+        .gradient-text { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, #3b82f6, #8b5cf6); transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
     </style>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" style="font-weight: bold; font-size: 1.2rem;">Elden 的博客</a>
-                <div>
-                    <a href="index.html">首页</a>
-                    <a href="about.html">关于</a>
+<body class="min-h-screen">
+    <nav class="bg-bg-secondary/80 backdrop-blur-md border-b border-white/10 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="text-xl font-bold gradient-text">Elden</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-400 hover:text-white">首页</a>
+                    <a href="index.html#projects">项目</a>
+                    <a href="index.html#blog">博客</a>
+                    <a href="about.html" class="nav-link text-white font-medium">关于</a>
                 </div>
-            </nav>
+            </div>
         </div>
-    </header>
-    <main class="container">
-        <h1>关于我</h1>
-        <p>你好，我是 Elden。</p>
-        <p>这是一个个人博客，记录我的思考、项目和技术探索。</p>
-        
-        <h2>关于这个博客</h2>
-        <p>本博客由 AI 助手「大胖妞」协助搭建和維護。</p>
-        <p>技术栈：纯静态 HTML，部署在 GitHub Pages。</p>
-        
-        <h2>联系方式</h2>
-        <p>GitHub: <a href="https://github.com/zuokun300" target="_blank">zuokun300</a></p>
+    </nav>
+
+    <main class="py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- 头部 -->
+            <div class="text-center mb-16">
+                <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold text-5xl">
+                    E
+                </div>
+                <h1 class="text-4xl font-bold text-white mb-4">关于我</h1>
+                <p class="text-gray-400 text-lg">开发者 · 技术爱好者 · 终身学习者</p>
+            </div>
+
+            <!-- 个人简介 -->
+            <section class="mb-16">
+                <div class="bg-bg-card rounded-xl p-8 border border-white/10">
+                    <h2 class="text-2xl font-bold text-white mb-4 flex items-center">
+                        <i data-lucide="user" class="w-6 h-6 mr-3 text-accent-primary"></i>
+                        个人简介
+                    </h2>
+                    <div class="text-gray-300 space-y-4 leading-relaxed">
+                        <p>你好，我是 Elden，一名热爱技术的开发者。</p>
+                        <p>我相信技术应该服务于人，而不是让人服务于技术。在日常工作中，我专注于寻找简单优雅的解决方案，避免过度工程化。</p>
+                        <p>对 AI 与大模型的结合应用有浓厚兴趣，正在探索如何让 AI 成为开发者的得力助手，而非替代品。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 技术栈 -->
+            <section class="mb-16">
+                <div class="bg-bg-card rounded-xl p-8 border border-white/10">
+                    <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
+                        <i data-lucide="code" class="w-6 h-6 mr-3 text-accent-primary"></i>
+                        技术栈
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-white font-semibold mb-3">编程语言</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 bg-blue-500/20 text-blue-400 rounded-lg text-sm">Python</span>
+                                <span class="px-3 py-1.5 bg-yellow-500/20 text-yellow-400 rounded-lg text-sm">JavaScript</span>
+                                <span class="px-3 py-1.5 bg-blue-600/20 text-blue-400 rounded-lg text-sm">TypeScript</span>
+                                <span class="px-3 py-1.5 bg-green-500/20 text-green-400 rounded-lg text-sm">Shell</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold mb-3">框架 & 工具</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 bg-purple-500/20 text-purple-400 rounded-lg text-sm">Node.js</span>
+                                <span class="px-3 py-1.5 bg-cyan-500/20 text-cyan-400 rounded-lg text-sm">React</span>
+                                <span class="px-3 py-1.5 bg-orange-500/20 text-orange-400 rounded-lg text-sm">Tailwind CSS</span>
+                                <span class="px-3 py-1.5 bg-gray-500/20 text-gray-400 rounded-lg text-sm">Git</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold mb-3">AI & ML</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 bg-green-500/20 text-green-400 rounded-lg text-sm">大模型应用</span>
+                                <span class="px-3 py-1.5 bg-indigo-500/20 text-indigo-400 rounded-lg text-sm">Prompt Engineering</span>
+                                <span class="px-3 py-1.5 bg-pink-500/20 text-pink-400 rounded-lg text-sm">AI Agent</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold mb-3">DevOps</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 bg-red-500/20 text-red-400 rounded-lg text-sm">Docker</span>
+                                <span class="px-3 py-1.5 bg-blue-500/20 text-blue-400 rounded-lg text-sm">GitHub Actions</span>
+                                <span class="px-3 py-1.5 bg-yellow-500/20 text-yellow-400 rounded-lg text-sm">Linux</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 联系方式 -->
+            <section class="mb-16">
+                <div class="bg-bg-card rounded-xl p-8 border border-white/10">
+                    <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
+                        <i data-lucide="mail" class="w-6 h-6 mr-3 text-accent-primary"></i>
+                        联系方式
+                    </h2>
+                    <div class="space-y-4">
+                        <a href="https://github.com/zuokun300" target="_blank" class="flex items-center gap-3 text-gray-300 hover:text-accent-primary transition-colors group">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                            <span>GitHub: <span class="text-accent-primary group-hover:underline">zuokun300</span></span>
+                        </a>
+                        <div class="flex items-center gap-3 text-gray-300">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            <span>时区：Europe/London</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 其他链接 -->
+            <section>
+                <div class="bg-bg-card rounded-xl p-8 border border-white/10">
+                    <h2 class="text-2xl font-bold text-white mb-6 flex items-center">
+                        <i data-lucide="link" class="w-6 h-6 mr-3 text-accent-primary"></i>
+                        其他链接
+                    </h2>
+                    <div class="space-y-3">
+                        <a href="index.html" class="flex items-center gap-3 text-gray-300 hover:text-accent-primary transition-colors group">
+                            <i data-lucide="home" class="w-5 h-5"></i>
+                            <span>返回首页</span>
+                        </a>
+                        <a href="index.html#projects" class="flex items-center gap-3 text-gray-300 hover:text-accent-primary transition-colors group">
+                            <i data-lucide="folder" class="w-5 h-5"></i>
+                            <span>查看项目</span>
+                        </a>
+                        <a href="index.html#blog" class="flex items-center gap-3 text-gray-300 hover:text-accent-primary transition-colors group">
+                            <i data-lucide="file-text" class="w-5 h-5"></i>
+                            <span>阅读博客</span>
+                        </a>
+                        <a href="feed.xml" class="flex items-center gap-3 text-gray-300 hover:text-accent-primary transition-colors group">
+                            <i data-lucide="rss" class="w-5 h-5"></i>
+                            <span>RSS 订阅</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
-    <footer class="container">
-        <p>&copy; 2026 Elden. Built with 😼 by 大胖妞.</p>
+
+    <footer class="bg-bg-primary border-t border-white/10 py-8 px-4 mt-12">
+        <div class="max-w-6xl mx-auto text-center text-gray-500 text-sm">
+            © 2026 Elden. Built with 😼 by 大胖妞.
+        </div>
     </footer>
+
+    <script>lucide.createIcons();</script>
 </body>
 </html>
